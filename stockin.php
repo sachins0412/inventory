@@ -37,7 +37,7 @@ $count=mysqli_num_rows($result2);
     	echo 0; ?></span></h5>
     </div>
 </div>
-    <p class="card-text"><form method="POST">
+    <p class="card-text"><form method="POST" action="insertstock.php?catid=<?php echo $catid?>&subcat=<?php echo $subcat?>&count=<?php echo $count?>">
   <div class="form-group">
     <label>StockIn</label>
     <input type="text" class="form-control" name="quan" id="quan" placeholder="Enter Quantity" onchange="myfun2(this.value)">
