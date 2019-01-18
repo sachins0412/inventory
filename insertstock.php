@@ -15,23 +15,28 @@ $count=$_GET['count'];
 $quan=$_POST['quan'];
 $user=$_SESSION['user'];
 $sign=$_GET['sign'];
-if($sign==10){
-
+$unit=$_POST['unit'];
+$total=$unit*$quan;
+if($sign==1){
+$sql2="INSERT INTO stockin(catid,subcat,unitcost,totalcost) VALUES('$catid','$subcat','$unit','$total')";
+$result2=mysqli_query($conn,$sql2);
 if($count>0){
 $sql="UPDATE subcategory SET quantity= quantity + '$quan' WHERE  catid='$catid' AND name='$subcat' AND user='$user'";
 $result=mysqli_query($conn,$sql);
-}
+	}
 else{
 	$sql="INSERT INTO subcategory(catid,name,quantity,user) VALUES('$catid','$subcat','$quan','$user')";
 	$result=mysqli_query($conn,$sql);
-}
-}
+	}
+	}
 else
 {
+	$sql3="INSERT INTO stockout(catid,subcat,unitcost,totalcost) VALUES('$catid','$subcat','$unit','$total')";
+$result3=mysqli_query($conn,$sql3);
 $sql="UPDATE subcategory SET quantity= quantity - '$quan' WHERE  catid='$catid' AND name='$subcat' AND user='$user'";
 $result=mysqli_query($conn,$sql);
 }
-header("Location:indexuser.php");
+header("refresh:0;url=indexuser.php");
 echo '<script language="javascript">';
 echo 'alert("SAVED SUCCESFULLY")';
 echo '</script>';

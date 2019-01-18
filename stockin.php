@@ -33,12 +33,13 @@ $row2=mysqli_fetch_row($result2);
     </div>
     <div class="col-sm-6">
     	<h5 class="card-title">Available: <span style="font-weight: 10;font-family: TIMES"><?php
-    	if($count>0) echo $row2[3];
-    	else 
-    	echo 0; ?></span></h5>
+    	if($count>0)
+    		echo $row2[3];
+    		else
+    		echo 0;?></span></h5>
     </div>
 </div>
-    <p class="card-text"><form method="POST" action="insertstock.php?catid=<?php echo $catid?>&subcat=<?php echo $subcat?>&count=<?php echo $count?>&sign=10">
+    <p class="card-text"><form method="POST" action="insertstock.php?catid=<?php echo $catid?>&subcat=<?php echo $subcat?>&count=<?php echo $count?>&sign=1">
   <div class="form-group">
     <label>StockIn</label>
     <input type="text" class="form-control" name="quan" id="quan" placeholder="Enter Quantity" onchange="myfun2(this.value)" required>
@@ -54,7 +55,7 @@ $row2=mysqli_fetch_row($result2);
 <div class="col-sm-6">
   <div class="form-group">
     <label>TotalCost</label>
-    <input type="text" class="form-control" id="total" disabled value="" >
+    <input type="text" class="form-control" id="total" name="total" disabled value="" >
     
   </div>
 </div>
@@ -77,13 +78,13 @@ $row2=mysqli_fetch_row($result2);
     <h5 class="card-title">SubCategory: <span style="font-weight: 10;font-family: TIMES"><?php echo ucfirst($subcat); ?></span></h5>
     </div>
     <div class="col-sm-6">
-    	<h5 class="card-title">Available: <span style="font-weight: 10;font-family: TIMES"><?php
+    	<h5 class="card-title">Available: <span id="avail" style="font-weight: 10;font-family: TIMES"><?php
     	if($count>0) echo $row2[3];
     	else 
     	echo 0; ?></span></h5>
     </div>
 </div>
-    <p class="card-text"><form method="POST" action="insertstock.php?catid=<?php echo $catid?>&subcat=<?php echo $subcat?>&count=<?php echo $count?>&sign=20">
+    <p class="card-text"><form method="POST" action="insertstock.php?catid=<?php echo $catid?>&subcat=<?php echo $subcat?>&count=<?php echo $count?>&sign=0">
   <div class="form-group">
     <label>StockOut</label>
     <input type="text" class="form-control" name="quan" id="quan2" placeholder="Enter Quantity" onchange="myfun3(this.value)" required>
@@ -93,13 +94,13 @@ $row2=mysqli_fetch_row($result2);
   	<div class="col-sm-6">
   <div class="form-group">
     <label>UnitCost</label>
-    <input type="text" class="form-control" name="unit2" id="cost2" placeholder="Cost per unit" onchange="myfun4(this.value)" required>
+    <input type="text" class="form-control" name="unit" id="cost2" placeholder="Cost per unit" onchange="myfun4(this.value)" required>
   </div>
 </div>
 <div class="col-sm-6">
   <div class="form-group">
     <label>TotalCost</label>
-    <input type="text" class="form-control" id="total2" disabled value="" >
+    <input type="text" class="form-control" id="total2" name="total" disabled value="" >
     
   </div>
 </div>
@@ -140,7 +141,8 @@ $row2=mysqli_fetch_row($result2);
 		document.getElementById('total2').setAttribute("value",total2);
 	}
 	function myfun3(quan2){
-		if(quan2><?php echo $row2[3]?>){
+		var avail=document.getElementById("avail").innerText;
+		if(quan2>avail){
 			document.getElementById("errors").innerHTML="LIMIT CROSSED!";
 			document.getElementById("submit").disabled=true;
 		}

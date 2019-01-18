@@ -47,7 +47,8 @@ $(document).ready(function(){
         if(mysqli_num_rows($result)>0){
     	while($row=mysqli_fetch_row($result)){
     		$sql2= "SELECT name FROM subcategory WHERE catid='$row[0]' AND user='$user'";
-    		$result2=mysqli_query($conn,$sql2);
+    		$result1=mysqli_query($conn,$sql2);
+        if(mysqli_num_rows($result1)>0){
     	?>
     <tr>	
     	
@@ -55,18 +56,17 @@ $(document).ready(function(){
       <td><?php echo $row[1];?></td>
       <td>
       	<ul><?php 
-      	if(mysqli_num_rows($result2)>0){
-      		while($row1=mysqli_fetch_row($result2)){?>
+      	     		while($row1=mysqli_fetch_row($result1)){?>
       		<li><?php echo $row1[0];?></li>
       		<?php		
       		}
-      	}
+      	
       	 ?>
       </ul></td>
 
     </tr>
 <?php
-}
+}}
     } 
     ?>
   </tbody>
