@@ -7,7 +7,7 @@ session_start();
 	<title></title>
 	<style type="text/css">
 		.bg1{
-background: url(bg.jpg) no-repeat center center/cover;
+background: url(bg.jpg) repeat center center/cover;
   background-attachment:fixed; 
   background-size:auto*1.5rem auto; 
 }

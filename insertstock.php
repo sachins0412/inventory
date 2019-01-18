@@ -9,6 +9,8 @@ $conn = new mysqli($servername, $username, $password,$db);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+$supp=$_POST['supp'];
+$buy=$_POST['buy'];
 $catid=$_GET['catid'];
 $subcat=$_GET['subcat'];
 $count=$_GET['count'];
@@ -18,7 +20,7 @@ $sign=$_GET['sign'];
 $unit=$_POST['unit'];
 $total=$unit*$quan;
 if($sign==1){
-$sql2="INSERT INTO stockin(catid,subcat,unitcost,totalcost) VALUES('$catid','$subcat','$unit','$total')";
+$sql2="INSERT INTO stockin(catid,subcat,unitcost,totalcost,supplier) VALUES('$catid','$subcat','$unit','$total','$supp')";
 $result2=mysqli_query($conn,$sql2);
 if($count>0){
 $sql="UPDATE subcategory SET quantity= quantity + '$quan' WHERE  catid='$catid' AND name='$subcat' AND user='$user'";
@@ -31,7 +33,7 @@ else{
 	}
 else
 {
-	$sql3="INSERT INTO stockout(catid,subcat,unitcost,totalcost) VALUES('$catid','$subcat','$unit','$total')";
+	$sql3="INSERT INTO stockout(catid,subcat,unitcost,totalcost,buyer) VALUES('$catid','$subcat','$unit','$total','$buy')";
 $result3=mysqli_query($conn,$sql3);
 $sql="UPDATE subcategory SET quantity= quantity - '$quan' WHERE  catid='$catid' AND name='$subcat' AND user='$user'";
 $result=mysqli_query($conn,$sql);

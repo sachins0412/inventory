@@ -7,6 +7,7 @@ $sql="SELECT name FROM category WHERE catid='$catid'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_row($result);
 $subcat=$_GET['subcat'];
+
 $sql2="SELECT * FROM subcategory WHERE catid='$catid' AND name='$subcat' AND user='$user'";
 $result2=mysqli_query($conn,$sql2);
 $count=mysqli_num_rows($result2);
@@ -40,10 +41,20 @@ $row2=mysqli_fetch_row($result2);
     </div>
 </div>
     <p class="card-text"><form method="POST" action="insertstock.php?catid=<?php echo $catid?>&subcat=<?php echo $subcat?>&count=<?php echo $count?>&sign=1">
+  	<div class="row">
+  		<div class="col-sm-6">
   <div class="form-group">
+
     <label>StockIn</label>
     <input type="text" class="form-control" name="quan" id="quan" placeholder="Enter Quantity" onchange="myfun2(this.value)" required>
+    </div></div>
+    <div class="col-sm-6">
+  <div class="form-group">
+    <label>Supplier</label>
+    <input type="text" class="form-control" placeholder="Supplier'sName" name="supp" required>
     
+  </div>
+</div>
   </div>
   <div class="row">
   	<div class="col-sm-6">
@@ -85,10 +96,19 @@ $row2=mysqli_fetch_row($result2);
     </div>
 </div>
     <p class="card-text"><form method="POST" action="insertstock.php?catid=<?php echo $catid?>&subcat=<?php echo $subcat?>&count=<?php echo $count?>&sign=0">
+    	<div class="row">
+    		<div class="col-sm-6">
   <div class="form-group">
     <label>StockOut</label>
     <input type="text" class="form-control" name="quan" id="quan2" placeholder="Enter Quantity" onchange="myfun3(this.value)" required>
     <div id="errors"></div>
+</div></div>
+<div class="col-sm-6">
+  <div class="form-group">
+    <label>Buyer</label>
+    <input type="text" class="form-control" name="buy" placeholder="Buyer'sName" onchange="myfun4(this.value)" required>
+  </div>
+</div>
   </div>
   <div class="row">
   	<div class="col-sm-6">

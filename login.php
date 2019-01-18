@@ -22,7 +22,7 @@
 html,body{
 background-image: url('bg.jpg');
 background-size: cover;
-background-repeat: no-repeat;
+background-repeat: repeat;
 height: 100%;
 font-family: 'Numans', sans-serif;
 }
