@@ -20,7 +20,7 @@ $sign=$_GET['sign'];
 $unit=$_POST['unit'];
 $total=$unit*$quan;
 if($sign==1){
-$sql2="INSERT INTO stockin(catid,subcat,unitcost,totalcost,supplier) VALUES('$catid','$subcat','$unit','$total','$supp')";
+$sql2="INSERT INTO stockin(catid,subcat,unitcost,totalcost,supplier,user) VALUES('$catid','$subcat','$unit','$total','$supp','$user')";
 $result2=mysqli_query($conn,$sql2);
 if($count>0){
 $sql="UPDATE subcategory SET quantity= quantity + '$quan' WHERE  catid='$catid' AND name='$subcat' AND user='$user'";
@@ -33,7 +33,7 @@ else{
 	}
 else
 {
-	$sql3="INSERT INTO stockout(catid,subcat,unitcost,totalcost,buyer) VALUES('$catid','$subcat','$unit','$total','$buy')";
+	$sql3="INSERT INTO stockout(catid,subcat,unitcost,totalcost,buyer,user) VALUES('$catid','$subcat','$unit','$total','$buy','$user')";
 $result3=mysqli_query($conn,$sql3);
 $sql="UPDATE subcategory SET quantity= quantity - '$quan' WHERE  catid='$catid' AND name='$subcat' AND user='$user'";
 $result=mysqli_query($conn,$sql);

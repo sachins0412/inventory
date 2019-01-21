@@ -33,7 +33,7 @@ $(document).ready(function(){
       <input class="form-control-sm " id="myInput" type="search" placeholder="Search in this table" aria-label="Search">
       
     </form><br>
-<table class="table table-hover">
+<table class="table table-hover border">
   <thead>
     <tr>
       <th scope="col">catid</th>
