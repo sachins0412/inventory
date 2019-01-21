@@ -15,6 +15,14 @@ $subname=$_POST['datapost'];
 $catid=$_POST['catid'];
 $sql="DELETE FROM subcategory WHERE name='$subname' AND catid='$catid' AND user='$user' ";
 $result=mysqli_query($conn,$sql);
+$sql1="SELECT name FROM category WHERE catid='$catid'";
+$result1=mysqli_query($conn,$sql1);
+$sql2="SELECT quantity FROM subcategory WHERE catid='$catid' AND name='$subname' AND user='$user'";
+$result2=mysqli_query($conn,$sql2);
+$sql3="SELECT unitcost FROM stockin WHERE catid='$catid' AND subcat='$subname' AND user='$user'";
+$result3=mysqli_query($conn,$sql3);
+  $sql4="SELECT name,quantity FROM subcategory WHERE catid='$catid' AND user='$user'";
+$result4=mysqli_query($conn,$sql4);
 ?>
 <tr>
     <?php
