@@ -90,7 +90,7 @@ background: url(bg.jpg) repeat center center/cover;
 		document.getElementById("1").href=url;
 		var url = "stockin.php?cat="+catvalue+"&subcat="+subcatvalue;
 		document.getElementById("2").href=url;
-		var url = "deleted.php?cat="+catvalue+"&subcat="+subcatvalue;
+		var url = "transaction.php?cat="+catvalue+"&subcat="+subcatvalue;
 		document.getElementById("3").href=url;
 	}
 
@@ -98,8 +98,8 @@ background: url(bg.jpg) repeat center center/cover;
 
 <div class="container">
  <a class="btn btn-outline-light btn-lg" id="1" style=" " href="" title="view">View</a>
- <a class="btn btn-outline-light btn-lg" id="2" style="margin-left: 1em;" href="" title="import">Import/Export</a> <a class="btn btn-outline-light btn-lg" id="3" style="margin-left: 1em;" href="" title="Delete">Delete</a>
-               
+ <a class="btn btn-outline-light btn-lg" id="2" style="margin-left: 1em;" href="" title="import">Import/Export</a>
+               <a class="btn btn-outline-light btn-lg" id="3" style="margin-left: 1em;" href="" title="TRANSACTION">Transaction</a>
 </div></div>
 </form>
     	</div>

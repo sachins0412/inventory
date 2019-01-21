@@ -51,8 +51,8 @@ $(document).ready(function(){
       <th scope='col'>Catid</th>
       <th scope='col'>Category</th>
       <th scope='col'>Subcategory</th>
-      <th scope='col'>quantity</th>
-      <th scope='col'>UnitCost</th>
+      <th scope='col'>qty in stock</th>
+
 
     </tr><tbody id="myTable""><tr>
     <?php
@@ -64,11 +64,10 @@ $(document).ready(function(){
       $result5=mysqli_query($conn,$sql5);
       $row5=mysqli_fetch_row($result5);
         ?>
-        <td><?php echo $catid;?></td>
+        <td id="catid"><?php echo $catid;?></td>
         <td><?php echo $row1[0];?></td>
-        <td><?php echo $row4[0];?></td>
+        <td id="subcat"><?php echo $row4[0];?><button class="btn btn-outline" onclick="myfun()" style="padding-top: 1px;"><i class="fas fa-trash-alt" ></i></button></td>
         <td><?php echo $row4[1];?></td>
-        <td><?php echo $row5[0];?></td>
     </tr>
     <?php
   }
@@ -80,11 +79,10 @@ else{
     while ($row1 = mysqli_fetch_array($result1))
     {
         ?>
-        <td><?php echo $catid;?></td>
+        <td id="catid"><?php echo $catid;?></td>
         <td><?php echo $row1[0];?></td>
-        <td><?php echo $subname;?></td>
+        <td id="subcat"><?php echo $subname;?><button class="btn btn-outline" onclick="myfun()" style="padding-top: 1px;"><i class="fas fa-trash-alt" ></i></button></td>
         <td><?php echo $row2[0];?></td>
-        <td><?php echo $row3[0];?></td>
     </tr>
     <?php
 }
@@ -95,5 +93,25 @@ else{
 </tbody>
 </table>
 </div>
+<script type="text/javascript">
+  function myfun(){
+  
+if (confirm("Want to delete?")) {
+  var subcat=document.getElementById("subcat").value ;
+  var catid=document.getElementById("catid").value ;
+  $.ajax({
+
+      url: 'delete.php',
+      type:'POST',
+      data:{datapost : subcat, catid :},
+      success: function(result){
+          $('#myTable').html(result);
+      }
+      
+    });
+}
+}
+  
+</script>
 	</body>
 	</html>
