@@ -43,7 +43,7 @@ $(document).ready(function(){
   	<?php
     if(mysqli_num_rows($result)>0){
     	while($row=mysqli_fetch_row($result)){
-    		$sql2= "SELECT name FROM subcategory WHERE catid='$row[0]'";
+    		$sql2= "SELECT name FROM subcategory WHERE catid='$row[0]' and user='admin'";
     		$result2=mysqli_query($conn,$sql2);
     	?>
     <tr>	
