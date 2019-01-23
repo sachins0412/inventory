@@ -98,7 +98,7 @@ $(document).ready(function(){
         ?>
         <td id="catid"><?php echo $catid;?></td>
         <td><?php echo $row1[0];?></td>
-        <td id="subcat"><?php echo $row3[0];?></td>
+        <td><?php echo $row3[0];?></td>
          <td><?php if($row4[2]==0){echo "";} else echo $row4[3]/$row4[2];?></td>
         <td><?php echo $row4[2];?></td>
         <td><?php echo $row4[3];?></td>
@@ -146,8 +146,11 @@ $(document).ready(function(){
                 var from_date = $('#from_date').val();  
                 var to_date = $('#to_date').val();  
                 if(from_date != '' && to_date != '')  
-                {   var subcat=document.getElementById("subcat").innerText;
+                {   
     var catid=document.getElementById("catid").innerText;
+                  
+                  if(subcat){
+                      var subcat=document.getElementById("subcat").innerText;
                      $.ajax({  
                           url:"filter.php",  
                           method:"POST",  
@@ -157,6 +160,20 @@ $(document).ready(function(){
                                $('#myTable').html(data);  
                           }  
                      });  
+                }
+                else
+                {var subcat=null;
+                 $.ajax({  
+                  
+                          url:"filter.php",  
+                          method:"POST",  
+                          data:{from_date:from_date, to_date:to_date,catid:catid, subcat:subcat},  
+                          success:function(data)  
+                          {  
+                               $('#myTable').html(data);  
+                          }  
+                     }); 
+                }
                 }  
                 else  
                 {  
