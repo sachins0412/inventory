@@ -41,15 +41,16 @@ $(document).ready(function(){
       
         <div class="row">
         <div class="col-sm-6"> 
-     <h1 style="font-family:Century">Stock In Transactions</h1>
+     <h1 style="font-family:Century">Stock Out Transactions</h1>
   
-</div><div class="col-sm-6">
-  <a href="transaction.php?cat=<?php echo $catid ?> &subcat=<?php echo $subname ?>"><button type="button" class="btn btn-success" style="float: right;" title="click to view stock out">Stock In</button></a>
-</div>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control-sm " id="myInput" type="search" placeholder="Search in this table" aria-label="Search">
       
     </form><br>
+</div><div class="col-sm-6">
+  <a href="transaction.php?cat=<?php echo $catid ?> &subcat=<?php echo $subname ?>"><button type="button" class="btn btn-success" style="float: right;" title="click to view stock out">Stock In</button></a><br><br>
+  <a href=""><button type="button" class="btn btn-success" onclick="down()" style="float: right;" title="click to view stock out">Download PDF</button></a>
+</div>
       <table class="table table-hover border">
         <thead>
    <tr>
@@ -111,5 +112,11 @@ $result4=mysqli_query($conn,$sql4);
 </tbody>
 </table>
 </div>
+<script type="text/javascript">
+  function down()
+  {
+    window.print();
+  }
+</script>
   </body>
   </html>
