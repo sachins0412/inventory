@@ -21,7 +21,7 @@ if($result){?>
 <div class="container  " style="padding-top:5em;">
   <div class="jumbotron " style="color:white;background-color:rgba(0,6,1,0.5);">
     <h1>SUCCESS</h1> 
-    <p>Category Created successfully</p> 
+    <p>SubCategory Created successfully</p> 
   </div>
   
 </div>
@@ -32,7 +32,7 @@ else{
 	<div class="container  " style="padding-top:5em;">
   <div class="jumbotron " style="color:white;background-color:rgba(0,6,1,0.5);">
     <h1>FAILED</h1> 
-    <p>Category Creation FAILED</p> 
+    <p>SubCategory Creation FAILED</p> 
   </div>
   
 </div>

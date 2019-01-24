@@ -34,7 +34,7 @@ include "navbar.php";
   	<div class="col-sm-6">
   <div class="form-group">
     <label>Category</label>
-    <input type="text" class="form-control" name="name" placeholder="Enter Category name" required >
+    <input type="text" class="form-control" name="cat" placeholder="Enter Category name" required >
   </div>
 </div>
 
