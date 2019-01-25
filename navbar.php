@@ -36,10 +36,7 @@ if ($conn->connect_error) {
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="newcat.php">New Category</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="newsubcat.php">New Subcategory</a>
+        <a class="nav-link" href="newcat.php">Add</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="list.php">Category List</a>

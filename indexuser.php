@@ -107,7 +107,7 @@ background: url(bg.jpg) repeat center center/cover;
 <div class="container">
  <a class="btn btn-outline-light btn-lg" id="1" style=" " href="" title="view">View</a>
  <a class="btn btn-outline-light btn-lg" id="2" onclick="myfun3()" style="margin-left: 1em;" href="#" title="import">Import/Export</a>
-               <a class="btn btn-outline-light btn-lg" id="3" style="margin-left: 1em;" href="" title="TRANSACTION">Transaction</a>
+               <a class="btn btn-outline-light btn-lg" id="3" style="margin-left: 1em;" href="transaction.php?cat=''&subcat=''" title="TRANSACTION">Transaction</a>
 </div></div>
 </form>
     	</div>

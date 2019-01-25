@@ -10,6 +10,8 @@ $sql2="SELECT * FROM stockin WHERE catid='$catid' AND subcat='$subname' AND user
 $result2=mysqli_query($conn,$sql2);
 $sql3="SELECT name FROM subcategory WHERE catid='$catid' AND user='$user'";
 $result3=mysqli_query($conn,$sql3);
+$sql4="SELECT * FROM category ";
+$result4=mysqli_query($conn,$sql4);
  
 ?>
 <html>
@@ -85,7 +87,33 @@ $(document).ready(function(){
     </thead>
     <tbody id="myTable""><tr>
     <?php
-      if(mysqli_num_rows($result2)==0)
+     if(mysqli_num_rows($result1)==0)
+        { if (mysqli_num_rows($result2)==0){
+          while ($row4=mysqli_fetch_array($result4)) 
+          { $sql6="SELECT name FROM subcategory WHERE catid='$row4[0]' AND user='$user'";
+$result6=mysqli_query($conn,$sql6);
+            while( $row6=mysqli_fetch_array($result6)){
+           $sql5="SELECT * FROM stockin WHERE catid='$row4[0]' AND user='$user' AND subcat='$row6[0]'";
+           $result5=mysqli_query($conn,$sql5);
+          while ($row5=mysqli_fetch_row($result5)) {
+            
+          
+ 
+        ?>
+        <td id="catid"><?php echo $row4[0];?></td>
+        <td><?php echo $row4[1];?></td>
+        <td><?php echo $row6[0];?></td>
+         <td><?php if($row5[2]==0){echo "";} else echo $row5[3]/$row5[2];?></td>
+        <td><?php echo $row5[2];?></td>
+        <td><?php echo $row5[3];?></td>
+        <td><?php echo $row5[4];?></td>
+        <td><?php echo $row5[5];?></td>
+    </tr>
+    <?php
+}
+}}}
+}
+     else if(mysqli_num_rows($result2)==0)
         { if (mysqli_num_rows($result1)>0){
           while ($row1=mysqli_fetch_array($result1)) 
           { while( $row3=mysqli_fetch_array($result3)){
