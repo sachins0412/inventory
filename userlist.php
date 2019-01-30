@@ -29,10 +29,16 @@ $(document).ready(function(){
 </head>
 <body>
 	<div class="container mt-5 ">
-	<form class="form-inline my-2 my-lg-0">
-      <input class="form-control-sm " id="myInput" type="search" placeholder="Search in this table" aria-label="Search">
-      
+    <div class="row">
+      <div class="col-sm-6">
+	<form class="form-inline my-2 my-lg-0" action="javascript:void(0);">
+      <input class="form-control " id="myInput" type="search" placeholder="Search in this table" aria-label="Search">
     </form><br>
+  </div>
+  <div class="col-sm-6">
+    <a href=""><button type="button" class="btn btn-success ml-1" onclick="down()" title="click to view stock out">Download PDF</button></a>
+  </div>
+</div>
 <table class="table table-hover border">
   <thead>
     <tr>
@@ -73,4 +79,11 @@ $(document).ready(function(){
 </table>
 </div>
 </body>
+<script type="text/javascript">
+   function down()
+  {
+    window.print();
+  }
+</script>
+</script>
 </html>

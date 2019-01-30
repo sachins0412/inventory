@@ -47,29 +47,27 @@ $(document).ready(function(){
     <div class="container mt-5">
       
         <div class="row">
-        <div class="col-sm-3"> 
+        <div class="col-xs-3 col-lg-3 col-md-12"> 
      <h1 style="font-family:Century">Stock In Transactions</h1>
-     <form class="form-inline my-2 my-lg-0">
+     <form class="form-inline my-2 my-lg-0" action="javascript:void(0);">
       <div class="input-group form-group">
             
-            <input class="form-control-sm " id="myInput" type="search" placeholder="Search in this table" aria-label="Search">
+            <input class="form-control" id="myInput" type="search" placeholder="Search in this table" aria-label="Search">
      
             
           </div>
       
     </form>
-   </div> <div class="col-sm-3">
-                     <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date" />  
+   </div> <div class="col-xs-6 col-lg-6 col-md-12 form-inline">
+                     <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date">
+                     <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date">  
                 
                 
-                     <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date" />  
+                     <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info"> 
                 
-                
-                     <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" />  
-                
-</div><div class="col-sm-6">
-  <a href="transout.php?cat=<?php echo $catid ?> &subcat=<?php echo $subname ?>"><button type="button" class="btn btn-success" style="float: right;" title="click to view stock out">Stock Out</button></a><br><br>
-<button type="button" onclick="down()" class="btn btn-success" style="float: right;" title="click to view stock out">download pdf</button>
+</div><div class="col-xs-3 col-lg-3 col-md-12 form-inline" >
+  <a href="transout.php?cat=<?php echo $catid ?> &subcat=<?php echo $subname ?>"><button type="button" class="btn btn-success" style="float: right;" title="click to view stock out">Stock Out</button></a>
+<button type="button" onclick="down()" class="btn btn-success ml-1  " title="click to view stock out">download pdf</button>
 </div>
     <br>
       <table class="table table-hover border mt-4" style="" >
