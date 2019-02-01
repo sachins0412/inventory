@@ -94,7 +94,7 @@ $result6=mysqli_query($conn,$sql6);
             
           
  
-        ?>
+        ?><div id='catid'></div><div id='subcat'></div>
         <td id="catid"><?php echo $row4[0];?></td>
         <td><?php echo $row4[1];?></td>
         <td><?php echo $row6[0];?></td>
@@ -186,7 +186,7 @@ $result4=mysqli_query($conn,$sql4);
                 {var subcat=null;
                  $.ajax({  
                   
-                          url:"filter.php",  
+                          url:"filter2.php",  
                           method:"POST",  
                           data:{from_date:from_date, to_date:to_date,catid:catid, subcat:subcat},  
                           success:function(data)  

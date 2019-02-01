@@ -3,7 +3,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,6 +92,7 @@ margin-left: 4px;
 	</style>
 </head>
 <body>
+	
 	<div class="" style=""><center><h1 style="font-family:Algerian;font-style:italic; padding-top: 2.5em;">stock management</h1></center></div>
 <div class="container">
 	<div class="d-flex justify-content-center h-100" style="padding-bottom: 14em;">
@@ -117,7 +117,6 @@ margin-left: 4px;
 						</div>
 						<input type="password" name="pword" class="form-control" placeholder="password">
 					</div>
-  				</div>
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn float-right login_btn">
 					</div>

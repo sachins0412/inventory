@@ -9,8 +9,8 @@ $conn = new mysqli($servername, $username, $password,$db);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$supp=$_POST['supp'];
-$buy=$_POST['buy'];
+
+
 $catid=$_GET['catid'];
 $subcat=$_GET['subcat'];
 $count=$_GET['count'];
@@ -20,6 +20,7 @@ $sign=$_GET['sign'];
 $unit=$_POST['unit'];
 $total=$unit*$quan;
 if($sign==1){
+	$supp=$_POST['supp'];
 $sql2="INSERT INTO stockin(catid,subcat,unitcost,totalcost,supplier,user) VALUES('$catid','$subcat','$unit','$total','$supp','$user')";
 $result2=mysqli_query($conn,$sql2);
 if($count>0){
@@ -33,6 +34,7 @@ else{
 	}
 else
 {
+	$buy=$_POST['buy'];
 	$sql3="INSERT INTO stockout(catid,subcat,unitcost,totalcost,buyer,user) VALUES('$catid','$subcat','$unit','$total','$buy','$user')";
 $result3=mysqli_query($conn,$sql3);
 $sql="UPDATE subcategory SET quantity= quantity - '$quan' WHERE  catid='$catid' AND name='$subcat' AND user='$user'";
@@ -42,5 +44,4 @@ header("refresh:0;url=indexuser.php");
 echo '<script language="javascript">';
 echo 'alert("SAVED SUCCESFULLY")';
 echo '</script>';
-
 ?>
