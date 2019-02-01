@@ -1,13 +1,11 @@
-<?php
-session_start();
-?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 	<style type="text/css">
 		.bg1{
-background: url(bg.jpg) repeat center center/cover;
+background: url(bg.jpg) no-repeat center center/cover;
   background-attachment:fixed; 
   background-size:auto*1.5rem auto; 
 }
@@ -39,7 +37,7 @@ background: url(bg.jpg) repeat center center/cover;
                <br/>
                <br/>
                
-                <h1 id='A1'>Welcome <?php echo ucfirst($_SESSION["user"]); ?></h1>
+                <h1 id='A1'>Welcome <?php echo ucfirst($_SESSION["user"] )?></h1>
                 <br/>
                 
                <br/>
@@ -65,7 +63,7 @@ background: url(bg.jpg) repeat center center/cover;
   <div class="form-group" style="width:40%;">
   <label for="sel1" style="font-family:bold; color: white;">Select subcategory:</label>
 
-  <select class="form-control" id="sell2" name="Subcategory">
+  <select class="form-control" id="sell2" name="Subcategory" onchange="">
   	 <option value="" disabled selected>Sub-category</option>
     
   </select>	
@@ -81,24 +79,31 @@ background: url(bg.jpg) repeat center center/cover;
 			}
 			
 		});
+	
 	}
+	
 </script>
 
-<div class="container"><a class="btn btn-outline-light btn-lg" id="3" onclick="myfun2()" href="#" title="Delete">Delete</a>
+<div class="container">
+ 
+  <a class="btn btn-outline-light btn-lg" id="3" style="" onclick="myfun2()" href="#" title="Delete">Delete</a>
                
 </div></div>
 </form>
     	</div>
-    </div>]
+    </div>
     <script type="text/javascript">
     	function myfun2(){
-    		if(confirm("are you sure?")){	
-    				var catvalue=document.getElementById('sell').value;
+    		if(confirm("Are you sure you want to delete")){
+		var catvalue=document.getElementById('sell').value;
 		var subcatvalue=document.getElementById('sell2').value;
+		
 		var url = "deleted.php?cat="+catvalue+"&subcat="+subcatvalue;
 		document.getElementById("3").href=url;
-    		}
-    	}
+}
+	}
+
     </script>
 </body>
+
 </html>

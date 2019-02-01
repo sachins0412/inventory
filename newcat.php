@@ -5,6 +5,7 @@ background: url(bg.jpg) repeat center center/cover;
   background-attachment:fixed; 
   background-size:auto*1.5rem auto;
   height: 40em;
+
 }
 	</style></head>
 <?php
@@ -34,7 +35,7 @@ include "navbar.php";
   	<div class="col-sm-6">
   <div class="form-group">
     <label>Category</label>
-    <input type="text" class="form-control" name="cat" placeholder="Enter Category name" required >
+    <input type="text" class="form-control" name="cat" id="cost" placeholder="Enter Category name" required >
   </div>
 </div>
 
@@ -64,10 +65,11 @@ include "navbar.php";
 <div class="form-group">
 	<label>Category</label>
 	<select class="form-control" name='catid'>
-		<option disabled selected>Select Category</option>
+    <option disabled selected>Select Category</option>
 	<?php
 	if(mysqli_num_rows($result)>0){
 		while($row= mysqli_fetch_row($result)){
+
 			?>
 			<option value=<?php echo $row[0]?>>
 				<?php echo $row[1];?>
@@ -81,7 +83,7 @@ include "navbar.php";
 	  	<div class="col-sm-6">
   <div class="form-group">
     <label>Subcategory</label>
-    <input type="text" class="form-control" name="subcat" placeholder="Enter Subcategory name" required >
+    <input type="text" class="form-control" name="subcatname" id="cost" placeholder="Enter Subcategory name" required >
   </div>
 </div>
 

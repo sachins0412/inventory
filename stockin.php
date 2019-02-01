@@ -7,6 +7,7 @@ $sql="SELECT name FROM category WHERE catid='$catid'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_row($result);
 $subcat=$_GET['subcat'];
+
 $sql2="SELECT * FROM subcategory WHERE catid='$catid' AND name='$subcat' AND user='$user'";
 $result2=mysqli_query($conn,$sql2);
 $count=mysqli_num_rows($result2);
@@ -84,6 +85,7 @@ $row2=mysqli_fetch_row($result2);
     <h5 class="card-title">Category: <span style="font-weight: 10;font-family: TIMES"><?php echo ucfirst($row[0]); ?></span></h5>
     <h5 class="card-title">SubCategory: <span style="font-weight: 10;font-family: TIMES"><?php echo ucfirst($subcat); ?></span></h5>
     </div>
+   
 </div>
     <p class="card-text">
       <form method="POST" action="insertstock.php?catid=<?php echo $catid?>&subcat=<?php echo $subcat?>&count=<?php echo $count?>&sign=2">
@@ -158,11 +160,13 @@ $row2=mysqli_fetch_row($result2);
     {
        document.getElementById('errors').innerHTML="*LIMIT CROSSED*";
        document.getElementById('submit').disabled=true;
+
     }
     else{
 		var cost2=document.getElementById('cost2').value;
     document.getElementById('errors').innerHTML="";
 document.getElementById('submit').disabled=false;
+
 		if(cost2){
 			var total2= cost2*quan2;
 		}
@@ -172,4 +176,4 @@ document.getElementById('submit').disabled=false;
 	}}
 </script>
 </body>
-</html>	
+</html>

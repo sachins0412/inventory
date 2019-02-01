@@ -10,7 +10,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 $catid=$_POST['datapost'];	
-$sql="SELECT name  FROM subcategory WHERE catid='$catid' AND user='admin' ";
+$sql="SELECT name FROM subcategory WHERE catid='$catid' AND user='admin'";
 $result=mysqli_query($conn,$sql);
 ?>
 <option value="" disabled selected>Sub-category</option>

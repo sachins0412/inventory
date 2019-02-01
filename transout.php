@@ -94,8 +94,8 @@ $result6=mysqli_query($conn,$sql6);
             
           
  
-        ?><div id='catid'></div><div id='subcat'></div>
-        <td id="catid"><?php echo $row4[0];?></td>
+        ?><div id="catid"></div><div id="subcat"></div>
+        <td ><?php echo $row4[0];?></td>
         <td><?php echo $row4[1];?></td>
         <td><?php echo $row6[0];?></td>
          <td><?php if($row5[2]==0){echo "";} else echo $row5[3]/$row5[2];?></td>

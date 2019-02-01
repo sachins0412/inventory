@@ -117,6 +117,7 @@ margin-left: 4px;
 						</div>
 						<input type="password" name="pword" class="form-control" placeholder="password">
 					</div>
+					
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn float-right login_btn">
 					</div>
