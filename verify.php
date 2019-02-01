@@ -30,7 +30,7 @@ if($count>0)
 }
 else
 {
-	echo "username or password incorrect";
+
 	header('Location: login.php');
 	
 }
